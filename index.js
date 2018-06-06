@@ -1,7 +1,8 @@
 var VK = require("VK-Promise"),
-    vk = new VK ("5b760ed328410e2494164943bd9e455f2cb92d5744b416d89c0e409f332ed2f03f08b78cb04069837bc0e");
+    vk = new VK ("78f161bc267bed8fff4244e449cdd08be6368b51f9c41d7efcc3572929dc161f626161c8cd4d2139ae4cc");
 
-var cmdclear = require ("./clear.json");
+var c = require ("./clear.json");
+var r = require ("./raid.json");
 
 console.log("Бот работает •");
 
@@ -16,25 +17,22 @@ vk.on("message", function (event, msg) {
     if (msg.body == ".binfo") { // Информация о боте.
         msg.send("[Информация о боте &#129302;]\n\nСоздатель: [id154845243|Степан]\nВерсия бота: node.js 10.2.1")
     }
-    if (msg.action == "chat_invite_user") {
-        msg.send("Опа, что за фраерок? #ПопугЖиви &#128038;")
-    }
-    if (msg.action == "chat_invite_user_by_link") {
-        msg.send("Опа, что за фраерок? #ПопугЖиви &#128038;")
-    }
-    if (msg.action == "chat_kick_user") {
-        msg.send("Ливнул петушок &#128019; #ПопугЖиви &#128038;")
-    }
 });
 
 // ==================================Команды================================== //
 
 vk.on("message", function (event, msg) {
     if(msg.body == ".clear") {
-        msg.send(cmdclear.clear)
+        msg.send(c.clear)
         msg.send("Очищено &#9989;")
     }
 
+});
+
+vk.on("message", function (event, msg) {
+    if(msg.body == ".raid") {
+        msg.send("r.msg")
+    }
 });
 
 
